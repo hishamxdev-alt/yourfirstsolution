@@ -1,0 +1,771 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+</head>
+<body id="top">
+ 
+
+    <main>
+      <article>
+     <section class="landing-video hero" id="home">
+
+<video
+  #bgVideo
+  autoplay
+  muted
+  playsinline
+  loop
+  [src]="videoUrl"
+  class="bg-video">
+  <source [src]="videoUrl" type="video/mp4" />
+</video>
+
+
+  <!-- Floating sound toggle button -->
+  <button 
+    *ngIf="showSoundButton" 
+    class="sound-btn" 
+    (click)="enableSound()">
+    🔊 Enable Sound
+  </button>
+  <!-- <video autoplay muted loop playsinline preload="auto" *ngIf="videoUrl" class="bg-video">
+    <source [src]="videoUrl" type="video/mp4">
+
+  </video> -->
+  <div class="video-overlay"></div>
+
+  <div class="container-fluid">
+    <div class="landing-text row">
+      <h1 class="text-container">
+        {{ titleBeforeHighlight }}
+        <span style="background: var(--gradient-2); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; display: inline-flex;">
+          {{ highlightWord }}
+        </span>
+      </h1>
+    </div>
+
+    <div class="row">
+      <p class="hero-text animate-normal">Marketing & Media Production Agency</p>
+    </div>
+
+    <a [routerLink]="['/contact']" class="quote-button">
+      <img src="../../assets/button.png" height="50" width="160" loading="lazy">
+    </a>
+  </div>
+</section>
+
+   <!-- <section class="landing-image hero" id="home" [ngStyle]="{ 'background-image': backgroundUrl ? backgroundUrl : null }">
+  <div class="container-fluid">
+
+    <div class="landing-text row">
+      <h1 class="text-container">
+        {{ titleBeforeHighlight }}
+        <span style="
+          background: var(--gradient-2);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          display: inline-flex;
+        ">
+          {{ highlightWord }}
+        </span>
+      </h1>
+    </div>
+
+    <div class="row">
+      <p class="hero-text animate-normal">
+        Marketing & Media Production Agency
+      </p>
+    </div>
+
+    <a [routerLink]="['/contact']" class="quote-button">
+      <img src="../../assets/button.png" height="50" width="160" loading="lazy">
+    </a>
+
+
+
+  </div>
+</section> -->
+
+<div class="row ub-row"  >
+
+</div>
+
+        <!--   
+          - #ABOUT
+        -->
+  
+         <section class="section-area">
+          <div class="section-sub text-center container">
+            <p class="text-blur">
+              “We are a team of professionally certified and experienced artists with a proven track record of success as marketers.
+              <strong class="white"> We are skilled in every aspect of marketing, advertising, branding, and media production.</strong>
+            </p>
+            <p class="text-blur">
+              We have successfully completed numerous important projects for clients in Kuwait, Saudi Arabia and Egypt.
+              <strong> We're confident that we have the skills and experience to help you take your marketing to the next level.”</strong>
+            </p>
+          </div>
+        </section>
+  
+  
+        <section class="section about bg-dark" id="about"  >
+   
+          <div class="container">
+            <figure class="about-banner  fade-in-section">
+              <img
+                src="../../assets/story-2.jpg"
+                width="700"
+                height="532"
+                loading="lazy"
+                alt="about banner"
+                class="w-100  "
+                loading="lazy"
+              />
+            </figure>
+  
+            <div class="about-content fade-in-section ">
+              <h2 class="h2 section-title    ">Our Story</h2>
+  
+              <p class="about-text  ">
+                "We have a unique blend of marketing science experience, artistic mindset, and expert vision, which allows us to create marketing campaigns that are both effective and visually stunning. 
+                We'll help you to craft a compelling brand narrative, develop engaging content, and execute strategic marketing campaigns that drive results. 
+              </p>
+              
+              <p class="about-text  ">
+                We understand that marketing is more than just science and numbers; it's about art, creativity, and storytelling.
+                 We're here to help you create marketing campaigns that are both effective and unforgettable, helping you to stand out from the crowd and achieve your marketing goals."
+              </p>
+              <br>
+              <ul class="stats-list ">
+                <li class="stats-card  ">
+                  <p class="h3 stats-title">225</p>
+  
+                  <p class="text-blur">Satisfied Clients</p>
+                </li>
+  
+                <li class="stats-card ">
+                  <p class="h3 stats-title">208</p>
+  
+                  <p class="text-blur">Project Lunched</p>
+                </li>
+  
+                <li class="stats-card  ">
+                  <p class="h3 stats-title">8 +</p>
+  
+                  <p class="text-blur">Years Completed</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+  
+      
+      
+        <section class="section  bg-dark section-what-we-craft"  >
+
+          <div class="container ">
+            <h2 class="h2 section-title   fade-in-section" > What we craft & deliver</h2>
+            <h3 class="text-blur sub-header text-center fade-in-section" style="padding-bottom: 50px;">Marketing & Media Production including :</h3>
+
+
+            
+  
+            <ul class="grid-view-2 " >
+
+              <li class="  fade-in-section"   >
+                <div class="craft-card text-center">
+                   <h3 class="  stats-title" style="color: var(--red );">Marketing   </h3>
+                  <div style="border: 1px solid var(--red );border-radius: 5px;">
+        
+                   <li  >
+                    <div class="mini-card-list">
+                       <h3 class="h3 mini-title">Full Marketing/Advertising Campaigns</h3>
+                    </div>
+                  </li>
+                  <li  >
+                    <div class="mini-card-list">
+                       <h3 class="h3 mini-title">Social Media Management</h3>
+                    </div>
+                  </li>
+                  <li  >
+
+                    <div class="mini-card-list">
+                       <h3 class="h3 mini-title">Marketing Strategy</h3>
+                    </div>
+                  </li>
+                  <li  >
+
+                    <div class="mini-card-list">
+                       <h3 class="h3 mini-title">Logo & Branding </h3>
+                    </div>
+                  </li>
+                  <li  >
+                    <div class="mini-card-list">
+                       <h3 class="h3 mini-title">Offline Campaigns</h3>
+                    </div>
+                  </li>
+                  <li  >
+                    <div class="mini-card-list">
+                       <h3 class="h3 mini-title">Content Creation</h3>
+                    </div>
+                  </li>
+                  <li  >
+                    <div class="mini-card-list">
+                       <h3 class="h3 mini-title">Motion Graphic Designs</h3>
+                    </div>
+                  </li>
+                  <li  >
+                    <div class="mini-card-list">
+                       <h3 class="h3 mini-title">Copywriting  </h3>
+                    </div>
+                  </li>
+                  <li  >
+                    <div class="mini-card-list">
+                       <h3 class="h3 mini-title">Documents Design   </h3>
+                    </div>
+                  </li>
+                </div>
+                            
+              </div>
+              </li>
+  
+              <li class="  fade-in-section"  >
+                <div class="craft-card text-center">
+                   <h3 class="h2 stats-title" style="color: var(--navy-muted);">Media Production   </h3>
+                   <div style="border: 1px solid var(--navy-muted);border-radius: 5px;">
+
+                   <li  >
+                    <div class="mini-card-list">
+                       <h3 class="h3 mini-title">Creative Direction  </h3>
+                    </div>
+                  </li>
+ 
+                  <li  >
+                    <div class="mini-card-list">
+                       <h3 class="h3 mini-title">Script/Screenwriting </h3>
+                    </div>
+                  </li>
+                  <li  >
+                    <div class="mini-card-list">
+                       <h3 class="h3 mini-title">Film Production    </h3>
+                    </div>
+                  </li>
+                  <li >
+                    <div class="mini-card-list">
+                       <h3 class="h3 mini-title">Video Edit (Montage and Coloring)    </h3>
+                    </div>
+                  </li>
+                  <li >
+                    <div class="mini-card-list">
+                       <h3 class="h3 mini-title">Videography </h3>
+                    </div>
+                  </li>
+                  <li  >
+                    <div class="mini-card-list">
+                       <h3 class="h3 mini-title">Product Photography</h3>
+                    </div>
+                  </li>
+                  <li  >
+                    <div class="mini-card-list">
+                       <h3 class="h3 mini-title">Photography Sessions</h3>
+                    </div>
+                  </li>
+                  <li  >
+                    <div class="mini-card-list">
+                       <h3 class="h3 mini-title">Motion Graphic Videos (Animation)  </h3>
+                    </div>
+                  </li>
+                  <li >
+                    <div class="mini-card-list">
+                       <h3 class="h3 mini-title">Modeling   </h3>
+                    </div>
+                  </li>
+                </div>
+                </div>
+              </li>
+              </ul>
+
+              </div>
+              </section>
+
+              
+              <section class="section bg-grey"   *ngIf="featured?.length">
+                    <h2 class="  section-title   fade-in-section" >Featured</h2>
+
+             <h3 class="text-blur text-center  sub-header  fade-in-section" style="padding-bottom: 50px;">our latest features :-</h3>
+
+                <div class="row featured-row">
+   
+  <div class="col-md-4" *ngFor="let item of visibleFeatured">
+    <div class="featured-card">
+      <img *ngIf="item.image_src" [src]="item.image_src|fullImagePath" alt="Featured Image" class="featured-image" />
+      <h4 class="featured-title">{{ item.title }}</h4>
+      <p class="featured-subtitle">{{ item.sub_title }}</p>
+    </div>
+  </div>
+ 
+ </div>
+
+              </section>
+
+  
+        <section class="section  bg-dark" id="services">
+
+          <div class="container " style="padding-bottom:50px;">
+            <h2 class="  section-title   fade-in-section" >Our services</h2>
+
+             <h3 class="text-blur text-center  sub-header  fade-in-section" style="padding-bottom: 50px;">Discover our services including:-</h3>
+
+  
+            <ul class="grid-view-3 " >
+              <li class=" fade-in-section">
+                <div class="service-card" (click)="SectorDetails('modeling')">
+                      <figure class="features-banner">
+                      <img
+                        src="../../assets/mod.jpg"
+                        width="369"
+                        height="318"
+                        loading="lazy"
+                        alt="Features Banner"
+                        class="w-100 "
+                        style=" 
+                        height: 200px; "
+                      />
+                    </figure>
+                  <h3 class="h3 title">Modeling Service </h3>
+  
+ 
+                </div>
+              </li>
+  
+              <li class=" fade-in-section">
+                <div class="service-card" (click)="SectorDetails('social')">
+                   <figure class="features-banner">
+                    <img
+                      src="../../assets/pizza.png"
+                      width="369"
+                      height="318"
+                      loading="lazy"
+                      alt="Features Banner"
+                      class="w-100 "
+                      style=" 
+                      height: 200px; "
+                    />
+                  </figure>
+                    <h3 class="h3 title"> Social Media   </h3>
+ 
+ 
+                </div>
+              </li>
+               
+              <li class=" fade-in-section">
+                <div class="service-card" (click)="SectorDetails('media')">
+                  <!-- <ion-icon name="videocam-outline"  class="icon-services"></ion-icon> -->
+                  <figure class="features-banner">
+                    <img
+                      src="../../assets/cu.jpg"
+                      width="369"
+                      height="318"
+                      loading="lazy"
+                      alt="Features Banner"
+                      class="w-100 "
+                      style=" 
+                      height: 200px; "
+                    />
+                  </figure>
+                   <h3 class="h3 title"> Media Production  </h3>
+ 
+ 
+                </div>
+              </li>
+      
+            </ul>
+            <br>
+            <ul class="grid-view-3 " >
+
+
+              <li class=" fade-in-section">
+                <div class="service-card"(click)="SectorDetails('branding')">
+            
+                    <figure class="features-banner">
+                    <img
+                      src="../../assets/owl.png"
+                      width="369"
+                      height="318"
+                      loading="lazy"
+                      alt="Features Banner"
+                      class="w-100 "
+                      style=" 
+                      height: 200px; "
+                    />
+                  </figure>
+                  <h3 class="h3 title"> Branding  </h3>
+ 
+                </div>
+              </li>
+         
+
+              <li class=" fade-in-section">
+                <div class="service-card" (click)="SectorDetails('campaigns')">
+            
+                    <figure class="features-banner">
+                    <img
+                      src="../../assets/off.jpg"
+                      width="369"
+                       loading="lazy"
+                      alt="Features Banner"
+                      class="w-100 "
+                      style=" 
+                      height: 165px; "
+                    />
+                  </figure>'
+                  <h3 class="h3 title"> Offline Campaigns  </h3>
+ 
+                </div>
+              </li>
+              <li class=" fade-in-section">
+                <div class="service-card" (click)="SectorDetails('photography')">
+            
+                    <figure class="features-banner">
+                    <img
+                      src="../../assets/print.png"
+                      width="369"
+                      height="318"
+                      loading="lazy"
+                      alt="Features Banner"
+                      class="w-100 "
+                      style=" 
+                      height: 200px; "
+                    />
+                  </figure>
+                  <h3 class="h3 title">Photography</h3>
+  
+ 
+                </div>
+              </li>
+              
+
+              </ul>
+
+
+          </div>
+
+
+        </section>
+     
+        <section class="section-area1  ">
+          <div class="section-sub2 text-center container">
+  
+
+
+            <p  class="text-blur"> We craft distinctive and impactful brands that captivate audiences and drive lasting connections.
+              
+              <strong> Our expertise spans multiple sectors, allowing us to align with your unique business strategy and deliver tailored branding solutions, including..</strong>
+            </p>
+          </div>
+         
+        </section>
+            
+     
+      <section class="section sectors section-sectors bg-dark" id="sectors">
+        <div class="container-service">
+
+        <h2 class="h2 section-title">Our Sectors</h2>
+        <h3 class="text-blur  sub-header" style="padding-bottom: 50px;">We are expert in many sectors</h3>
+ 
+
+
+        <div class="sectors-grid fade-in-section" >
+          <div class="sector-item"[routerLink]="['/sectordetail']" (click)="SectorDetails('food')" >
+            <div class="sector-content">
+      
+      
+              <figure class="about-banner   " >
+                <div class="sector-image">
+                  <img src="../../assets/service/food.jpg" width="500" height="500" loading="lazy" 
+                    class="w-100  img-cover" />
+                </div>
+      
+              </figure>
+               <h3 class="sector-title">Food & Beverage</h3>
+
+            </div>
+          </div>
+          <div class="sector-item" [routerLink]="['/sectordetail']" (click)="SectorDetails('sport')">
+            <div class="sector-content">
+      
+      
+              <figure class="about-banner   ">
+                <div class="sector-image">
+      
+                  <img src="../../assets/service/gym.jpg" width="500" height="500" loading="lazy" 
+                    class="w-100  img-cover" />
+                </div>
+              </figure>
+           <h3 class="sector-title">Sports</h3>
+
+            </div>
+          </div>
+          <div class="sector-item" [routerLink]="['/sectordetail']" (click)="SectorDetails('medical')">
+            <div class="sector-content">
+      
+      
+              <figure class="about-banner   ">
+                <div class="sector-image">
+      
+                  <img src="../../assets/service/medical.jpg" width="500" height="500" loading="lazy"
+                     class="w-100  img-cover" />
+                </div>
+              </figure>
+         <h3 class="sector-title">Medical </h3>
+
+            </div>
+          </div>
+          <div class="sector-item" [routerLink]="['/sectordetail']" (click)="SectorDetails('car')">
+            <div class="sector-content">
+       
+      
+              <figure class="about-banner   ">
+                <div class="sector-image">
+      
+                  <img src="../../assets/service/car.jpg" width="500" height="500" loading="lazy" 
+                    class="w-100  img-cover" />
+                </div>
+              </figure>
+                <h3 class="sector-title">Automotive</h3>
+            </div>
+          </div>
+      
+        </div>
+        <div class="sectors-grid fade-in-section">
+          <div class="sector-item" [routerLink]="['/sectordetail']" (click)="SectorDetails('factory')">
+            <div class="sector-content">
+             
+            
+              <figure class="about-banner   ">
+                <div class="sector-image">
+
+                <img src="../../assets/service/factory.jpg" width="500" height="500" loading="lazy" 
+                  class="w-100  img-cover" />
+                  </div>
+              </figure>
+               <h3 class="sector-title">Manufacturing & Construction</h3>
+            </div>
+          </div>
+        
+          <div class="sector-item" [routerLink]="['/sectordetail']"  (click)="SectorDetails('fashion')">
+            <div class="sector-content">
+             
+            
+              <figure class="about-banner   img-cover">
+                <div class="sector-image">
+
+                <img src="../../assets/service/fashion.jpg" width="500" height="500" loading="lazy" 
+                  class="w-100  img-cover" />
+                  </div>
+              </figure>
+               <h3 class="sector-title">Fashion & Beauty</h3>
+            </div>
+          </div>
+
+          <div class="sector-item" [routerLink]="['/sectordetail']" (click)="SectorDetails('realestate')">
+            <div class="sector-content">
+            
+            
+              <figure class="banner  ">
+                <div class="sector-image">
+
+                <img src="../../assets/service/realestate-.jpg" width="500" height="500" loading="lazy" 
+                  class="w-100  img-cover" />
+                  </div>
+              </figure>
+                <h3 class="sector-title">RealEstate</h3>
+            </div>
+          </div>
+        
+          </div>
+
+
+
+        </div>
+
+
+        </section>
+ 
+        <section class="section-area1  ">
+          <div class="section-sub2 text-center container">
+  
+
+            <p  class="text-blur">           We build brands that stand out and resonate with your target audience, regardless of your industry. Our unique
+              creative direction, industry expertise, and data-driven approach help us deliver results that drive growth.
+                  <strong>We've worked with clients in a wide range of industries, including..</strong>
+            </p>
+
+          </div>
+         
+        </section>
+ 
+        <section  class="section partners " id="partners" style="padding-top: 300px;        background-image:  
+        var(--gradient-1);">
+          <figure class="features-banner ">
+            <img
+              src="../../assets/brain_our_trusted_partners.png"
+              width="369"
+              height="318"
+              loading="lazy"
+              alt="Features Banner"
+              class="w-100 brain"
+              style="position: absolute;  left: 450px;   height: 400px;margin-bottom: 131px;"
+            />
+          </figure>
+          <figure class="features-banner">
+            <img
+              src="../../assets/pizza.png"
+              width="369"
+              height="318"
+              loading="lazy"
+              alt="Features Banner"
+              class="w-100 partners-pizza"
+              style="position: absolute;
+              right: 115px;
+              height: 400px;
+              opacity: 0.3;"
+            />
+          </figure>
+          <figure class="features-banner">
+            <img
+              src="../../assets/pizza.png"
+              width="369"
+              height="318"
+              loading="lazy"
+              alt="Features Banner"
+              class="w-100 banner-animation"
+              style="position: absolute;
+              left: -43px;
+              height: 400px;
+              padding-bottom: 217px;
+              opacity: 0.3;"
+            />
+          </figure>
+          <figure class="features-banner">
+            <img
+              src="../../assets/pizza.png"
+              width="369"
+              height="318"
+              loading="lazy"
+              alt="Features Banner"
+              class="w-100 banner-animation "
+              style="position: absolute;
+              left: 174px;
+              height: 400px;
+              padding-top: 187px;
+              opacity: 0.3;"
+            />
+          </figure>
+           <h2 class="h2 section-title   partners "  >our trusted partners</h2>
+
+           <div class="slider-container" >
+            <canvas id="partnerSlider"></canvas>
+           <button class="prev "  id="rightArrow">&#10094;</button>
+           <button class="next" id="leftArrow">&#10095;</button>       
+            </div>
+
+            <a class="btn" style="margin-top: 20px;"  [routerLink]="['/partners']">View All</a>
+
+ 
+           
+ 
+  
+      </section>
+      <section class="section-area2  ">
+        <div class="section-sub text-center container">
+
+            <p   class="join-us">Ready to start our growth journey?</p>
+            <p style="     
+         
+            margin-top: 40px;
+            font-size: small;
+            font-weight: bold; " class="text-blur">Join us now</p>
+
+            <figure class="features-banner"  [routerLink]="['/contact']">
+              <img id="join-us" 
+                src="../../assets/print.png"              
+                loading="lazy"
+                alt="Join Us Now"
+                class=" "
+                style="  opacity: 0.8;
+                height: 150px; "
+              />
+            </figure>
+
+        </div>
+       
+      </section>
+
+      
+        <!-- 
+          - #BLOG
+        -->
+ 
+<section class="section blog" id="blog" style="background-color: whitesmoke;">
+  <div class="container">
+    <h2 class="h2 section-title color-dark underline fade-in-section">Talks</h2>
+
+ <ul class="blog-list">
+  <li *ngFor="let blog of blogs | slice:0:4"  >
+    <div class="blog-card">
+      <figure class="banner">
+        <a (click)="navigateToBlogDetail(blog.id)">
+          <img
+            [src]="blog.image_src |fullImagePath
+"
+            width="750"
+            height="350"
+            loading="lazy"
+            alt="Blog image"
+            class="img-cover"
+          />
+        </a>
+      </figure>
+
+      <div class="content">
+        <h3 class="h3 title color-dark">
+          <a (click)="navigateToBlogDetail(blog.id)">{{ blog.title }}</a>
+        </h3>
+
+        <div class="text" [innerHTML]="blog.sub_title"></div>
+
+        <div class="meta">
+          <div class="publish-date">
+            <ion-icon name="time-outline"></ion-icon>
+            <time [attr.datetime]="blog.created_at">{{ blog.created_at }}</time>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
+
+  </div>
+
+  <div style="place-items: center;">
+    <a class="btn" style="margin-top: 20px;" [routerLink]="['/blogs']">View All</a>
+  </div>
+</section>
+ 
+  
+      </article>
+    </main>
+  
+  
+    <!-- 
+      - #GO TO TOP
+    -->
+  
+    <a href="#top" class="go-top active" aria-label="Go To Top" data-go-top>
+      <ion-icon name="arrow-up-outline"></ion-icon>
+    </a>
+  </body>
+  

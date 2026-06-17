@@ -1,0 +1,49 @@
+<div class=" section-header text-center container-fluid">
+	<h2 class="section-title  "> Talks</h2>
+	<h3 class="text-blur" style="padding-bottom: 50px;">home/talks</h3>
+  
+  </div>
+  <div  class="main">
+ 
+    
+    <div class="container">
+      <!-- <h1>Our Latest Blogs</h1> -->
+      <div class="blog-card" *ngFor="let blog of blogs">
+        <figure class="banner">
+        <img [src]="blog.image_src|fullImagePath" alt="Blog Image"  class="img-cover"  loading="lazy"        >
+        </figure>
+        <div class="content">
+          <h2 class="h3 title">{{ blog.title }}</h2>
+
+    
+        <p style="font-style: italic;">{{ blog.sub_title | slice:0:100 }}...</p>
+
+ 
+        <a [routerLink]="['/blogs', blog.id]" style="margin-top: 10px;">Read More..</a>
+      </div>
+    </div>
+
+    
+
+</div>
+
+<section class="section-area-bottom  "  >
+  <div class="section-sub text-center container">
+
+      <p  class="start-now">Ready to start our growth journey?</p>
+      <p  class="text-blur join-us">Join us now</p>
+
+      <figure class="features-banner"  [routerLink]="['/contact']">
+        <img id="join-us" 
+          src="../../assets/print.png"              
+          loading="lazy"
+          alt="Join Us Now"
+          class="  "
+          style="  opacity: 0.8;
+          height: 150px; "
+        />
+      </figure>
+
+  </div>
+ 
+</section>

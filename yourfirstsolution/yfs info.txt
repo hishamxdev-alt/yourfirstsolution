@@ -1,0 +1,22 @@
+ftp
+----------------------
+ftp : 173.201.179.213
+user: yfs@yourfirstsolution.com
+port:21
+password = YFS_Supp@123
+
+-------------------------------
+mysql Database credentials
+------------------------------
+$servername = "localhost:3306";
+$username = "yfs_admin"; 
+$password = "YFS_Supp@123";  
+$dbname = "yfs_database";   
+
+-------------------------
+godaddy
+-------------------------
+cutomerid= 606977625
+pass = yfsyfsyfs3...
+
+yfs.production1@gmail.com

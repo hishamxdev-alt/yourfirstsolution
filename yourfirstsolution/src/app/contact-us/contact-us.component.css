@@ -1,0 +1,141 @@
+
+  .main{
+    padding-top: 1%;
+    padding-bottom: 9%;
+    background-color: #191919;
+
+  }
+
+  .contact-us-container {
+    background-color: var(--bg-grey);
+    color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 900px;
+    margin: 2rem auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+  }
+  
+  .contact-title {
+    text-align: center;
+    font-size: 2.5rem; /* Larger font */
+    margin-bottom: 1.5rem;
+    font-family: var(--Architects-Daughter);
+  }
+  
+  .contact-form-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .form-section {
+    flex: 0 0 60%; /* Form takes up 60% of the space */
+    margin-right: 2%;
+  }
+  
+  .address-section {
+    flex: 0 0 35%; /* Address takes up 35% */
+    /* margin-top: 2rem; */
+    background-color: #1f1f1f;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  }
+  
+  .address-title {
+    font-size: 1.6rem;
+    margin-bottom:2rem;
+    color: #ddd;
+    text-decoration: underline;
+  }
+  
+  .address-section p {
+    font-size: 1.5rem;
+    margin: 0.8rem 0;
+    margin-bottom: 10px;
+    display: flex;
+
+  }
+ 
+  .address-section ion-icon {
+    color: var(--navy);
+    margin-right: 10px;
+    font-size: 2.5rem; /* Larger icon size */
+    font-weight: bold;
+  }
+  
+  .form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    width: 100%;
+    margin-right: 4%;
+  }
+  
+  .floating-label {
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    font-size: 1.5rem; /* Larger font for labels */
+    color: #bbb;
+    background-color: #121212;
+    padding: 0 5px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 1.2rem;
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #444;
+    border-radius: 5px;
+    font-size: 1.2rem; /* Larger font */
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .form-control:focus {
+    border-color: #0099ff;
+    outline: none;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    padding: 1.2rem 0;
+    background-image: var(--gradient-2);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.5rem;  
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-btn:hover {
+    background-image: var(--gradient-1);
+  }
+  
+  .submit-btn:active {
+    background-color: #005f99;
+  }
+  
+  .map-section {
+    margin-top: 2rem;
+  }
+
+
+  @media screen and (max-width: 768px) {
+
+  .form-section {
+    flex: 0 0 100%; /* Form takes up 60% of the space */
+    margin-right: 0;
+  }
+  
+  .address-section {
+    flex: 0 0 100%;
+  }
+}

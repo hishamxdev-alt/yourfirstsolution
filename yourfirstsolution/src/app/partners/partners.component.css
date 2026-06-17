@@ -1,0 +1,45 @@
+.main {
+  padding-top: 2%;
+}
+
+/* Container styling */
+.partners-container {
+   color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 900px;
+  margin: 2rem auto;
+ }
+
+/* Grid layout for logos */
+.partners-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-items: center;
+}
+
+/* Individual logo item */
+.partners-list li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Logo image styling */
+.partners-list img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  padding: 0.5rem;
+}
+
+/* Force 2 logos per row on mobile */
+@media (max-width: 768px) {
+  .partners-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

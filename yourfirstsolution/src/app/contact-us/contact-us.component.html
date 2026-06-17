@@ -1,0 +1,66 @@
+<div class=" section-header text-center container-fluid">
+	<h2 class="section-title  "> Get in Touch</h2>
+	<h3 class="text-blur" style="padding-bottom: 50px;">Drop us a message</h3>
+  
+  </div>
+  <div  class="main">
+
+	 <div class="contact-us-container ">
+		<!-- <h2 class="contact-title">Get in Touch</h2> -->
+	  
+		<div class="contact-form-wrapper">
+		  <div class="form-section">
+			<form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+			  <div class="form-group">
+				<label for="name" class="floating-label">Full Name</label>
+				<input type="text" id="name" name="name" [(ngModel)]="contactData.name" class="form-control" autocomplete="off" required />
+			  </div>
+	  
+			  <div class="form-group">
+				<label for="email" class="floating-label">Email Address</label>
+				<input type="email" id="email" name="email" [(ngModel)]="contactData.email" class="form-control"  autocomplete="off" required />
+			  </div>
+	  
+			  <div class="form-group">
+				<label for="subject" class="floating-label">How did you reach us</label>
+				<select id="subject" name="subject" [(ngModel)]="contactData.subject" class="form-control"  autocomplete="off" required>
+				  <option value="Facebook">Facebook</option>
+				  <option value="Instagram">Instagram</option>
+				  <option value="TikTok">TikTok</option>
+				  <option value="Linked In">Linked In</option>
+				  <option value="Search Engines">Search Engines</option>
+				  <option value="Word of Mouth">Word of Mouth</option>
+				  <option value="Blogs or News">Blogs or News </option>
+				  <option value="Relatives">Relatives</option>
+
+				</select>
+			  </div>
+			  <div class="form-group">
+				<label for="phone" class="floating-label">Phone Number</label>
+				<input type="number" id="phone" name="phone" [(ngModel)]="contactData.phone"  class="form-control"  autocomplete="off" required />
+			  </div>
+			  <div class="form-group">
+				<label for="message" class="floating-label">Message</label>
+				<textarea id="message" name="message" [(ngModel)]="contactData.message" class="form-control"  autocomplete="off" rows="5" required></textarea>
+			  </div>
+	  
+			  <button type="submit" class="submit-btn" [disabled]="!contactForm.valid">Submit</button>
+			</form>
+		  </div>
+	  
+		  <!-- Address Section -->
+		  <div class="address-section">
+			<h3 class="address-title">Contact Information</h3> 
+			<p><ion-icon name="location-outline"></ion-icon>We serve in :-  Egypt - Kuwait- UAE</p>
+			<p><ion-icon name="call-outline"></ion-icon> +20 1551605195 </p>
+			<p><ion-icon name="mail-outline"></ion-icon> yfs.production1&#64;gmail.com </p>
+		  </div>
+		</div>
+	  
+		<!-- Optional Google Map -->
+		<!-- <div class="map-section">
+		  <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+		</div> -->
+	  </div>
+	  	
+  </div>

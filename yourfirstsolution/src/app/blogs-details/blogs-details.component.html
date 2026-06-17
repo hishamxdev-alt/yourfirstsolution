@@ -1,0 +1,18 @@
+<!-- <div class=" section-header text-center container-fluid">
+	<h2 class="section-title  "> Talks</h2>
+	<h3 class="text-blur" style="padding-bottom: 50px;">home/talks/article  {{ blog.id }}</h3>
+  
+  </div> -->
+<div class="blog-detail container"  >
+    <div class="blog-container">
+      <img [src]="blog.image_src|fullImagePath" alt="Blog cover image" class="blog-image" />
+      <div class="blog-text">
+      <h1 class="blog-title" dir="auto" [innerHTML]="blog.title + '&nbsp;,&nbsp;' + blog.sub_title"></h1>
+        <p class="blog-meta">By YFS Team - {{ blog.created_at }}</p>
+        <div class="blog-content" style="font-size: medium;" dir="auto" [innerHTML]="blog.description"></div>
+      </div>
+    </div>
+    <a routerLink="/blogs" class="back-button">← Back to Talks</a>
+
+  </div>
+ 

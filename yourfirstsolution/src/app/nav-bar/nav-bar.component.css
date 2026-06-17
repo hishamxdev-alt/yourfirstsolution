@@ -1,0 +1,143 @@
+/* Navbar */
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    padding: 20px 0;
+    transition: background 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+
+/* Fix unwanted white space */
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+/* Fix transparent navbar */
+.nav-transparent {
+    background: transparent;
+}
+
+.fixed-nav {
+    background: black !important;
+    padding: 10px 0;
+    height: 85px;
+}
+
+/* Logo */
+.logo {
+    transition: all 0.3s ease-in-out;
+}
+
+.logo-large {
+    height: 120px;
+}
+
+.logo-normal {
+    height: 80px;
+}
+
+/* Navigation Links */
+.navbar-list {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Fix Text Visibility */
+.navbar-link {
+    color: white;
+    text-transform: uppercase;
+    font-weight: lighter;
+    font-family: "Showcard Gothic", sans-serif;
+    text-decoration: none;
+    transition: color 0.3s ease-out;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px; /* Adjust spacing */
+}
+
+.navbar-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--navy);
+    transition: width 0.3s ease-out;
+}
+
+.navbar-link:hover::after,
+.navbar-link:focus::after,
+.main-nav > li.active > a::after {
+    width: 100%;
+}
+
+/* .navbar-link:hover, .navbar-link.at {
+    color: #3bbbd0;
+} */
+
+/* Quote Button */
+.quote-button img {
+    cursor: pointer;
+}
+
+/* ✅ Fixed: Hamburger Menu Now Appears */
+.nav-toggle {
+    display: none;
+    font-size: 50px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    z-index: 10000;
+}
+
+ 
+@media screen and (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    .navbar-list {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 85px;
+        left: 0;
+        width: 100%;
+        background: black;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .navbar-list.mobile-nav {
+        display: flex;
+    }
+
+    .navbar-item {
+        margin: 10px 0;
+    }
+
+    /* Fix logo sizing */
+    .logo-large {
+        height: 80px;
+    }
+
+    .logo-normal {
+        height: 80px;
+    }
+    .quote-button{
+        display: none;
+    }
+
+}

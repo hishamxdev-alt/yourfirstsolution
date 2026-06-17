@@ -1,0 +1,104 @@
+Array
+(
+)
+Array
+(
+)
+METHOD: POST
+FILES:
+Array
+(
+)
+POST:
+Array
+(
+)
+METHOD: POST
+FILES:
+Array
+(
+    [image] => Array
+        (
+            [name] => no-img.png
+            [full_path] => no-img.png
+            [type] => image/png
+            [tmp_name] => /tmp/php0YDZh8
+            [error] => 0
+            [size] => 9713
+        )
+
+)
+POST:
+Array
+(
+    [section_id] => 1
+    [title] => test
+    [size] => banner
+)
+METHOD: POST
+FILES:
+Array
+(
+    [image] => Array
+        (
+            [name] => no-img.png
+            [full_path] => no-img.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpLrrM00
+            [error] => 0
+            [size] => 9713
+        )
+
+)
+POST:
+Array
+(
+    [section_id] => 1
+    [title] => test
+    [size] => banner
+)
+METHOD: POST
+FILES:
+Array
+(
+    [image] => Array
+        (
+            [name] => no-img.png
+            [full_path] => no-img.png
+            [type] => image/png
+            [tmp_name] => /tmp/phpw5ZtE6
+            [error] => 0
+            [size] => 9713
+        )
+
+)
+POST:
+Array
+(
+    [section_id] => 1
+    [title] => test
+    [size] => banner
+)
+DB ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'section_id' in 'WHERE'
+METHOD: POST
+FILES:
+Array
+(
+    [image] => Array
+        (
+            [name] => no-img.png
+            [full_path] => no-img.png
+            [type] => image/png
+            [tmp_name] => /tmp/php6LyMoY
+            [error] => 0
+            [size] => 9713
+        )
+
+)
+POST:
+Array
+(
+    [section_id] => 1
+    [title] => test
+    [size] => banner
+)

@@ -1,0 +1,457 @@
+<div class="control-panel">
+  <div class="main-content">
+    <header class="topbar">
+
+      <h2>Control Panel</h2>
+    </header>
+
+    <div class="content">
+
+      <!--! dashboard -->
+      <div id="dashboard" class="panel-content">
+        <h3 style="margin: 10px;">Website Statistics</h3>
+        <div class="charts-container">
+          <div class="chart-wrapper"><canvas  id="visitorsChart"></canvas></div>
+          <div class="chart-wrapper"><canvas id="viewsChart"></canvas></div>
+        </div>
+        <table class="stats-table">
+          <thead>
+            <tr>
+              <th>Visitors</th>
+              <th>Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Desktop Visitors</td>
+              <td>{{ visitorStats.desktop_visits }}</td>
+            </tr>
+            <tr>
+              <td>Mobile Visitors</td>
+              <td>{{ visitorStats.mobile_visits }}</td>
+            </tr>
+
+            <tr>
+              <td>Total Visitors</td>
+              <td>{{ visitorStats.total_visits }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!--! requests -->
+
+      <div id="requests" class="panel-content" style="display: none;">
+        <h3 style="margin: 10px;">Requests</h3>
+
+        <table class="stats-table">
+          <thead>
+            <tr>
+              <th style="min-width: 150px;">Name</th>
+              <th>Email</th>
+              <th>Subject</th>
+              <th>Message</th>
+              <th style="min-width: 190px;">Date/Time</th>
+              <th> </th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let i of contactData">
+              <td>{{ i.name }}</td>
+              <td>{{ i.email }}</td>
+              <td>{{ i.subject }}</td>
+              <td>{{ i.message }}</td>
+              <td>{{ i.created_at }}</td>
+              <td (click)="deleteContact(i.id)" style="cursor: pointer;">
+                <ion-icon name="trash-outline"></ion-icon>
+
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+
+
+      </div>
+
+      <!--! Setting -->
+
+      <!--! bannner -->
+<div id="banner" class="panel-content" style="display: none;">
+
+  <h3>Banner</h3>
+
+  <form #bannerForm="ngForm" (ngSubmit)="submitBanner()">
+
+    <!-- Video Preview -->
+    <video *ngIf="videoPreview" [src]="videoPreview" controls preload="metadata" style="max-width: 750px; display: block; margin-bottom: 10px;"></video>
+
+    <label>Title:</label>
+    <input type="text" name="title" autocomplete="off" [(ngModel)]="banner.title" />
+
+    <label>Subtitle:</label>
+    <input type="text" name="subtitle" [(ngModel)]="banner.subtitle" />
+
+    <label>Background Video:</label>
+    <input type="file" accept="video/mp4,video/webm" (change)="previewVideo($event)" />
+
+    <button type="submit">Save Banner</button>
+  </form>
+
+</div>
+
+      <!-- <div id="banner" class="panel-content" style="display: none;">
+
+        <h3>Banner</h3>
+
+
+        <form #bannerForm="ngForm" (ngSubmit)="submitBanner()">
+
+          <img *ngIf="imagePreview" [src]="imagePreview" loading="lazy" alt="Preview" style="max-width: 750px;" />
+
+
+          <label>Title:</label>
+          <input type="text" name="title"  autocomplete="off" [(ngModel)]="banner.title" />
+
+          <label>Subtitle:</label>
+          <input type="text" name="subtitle" [(ngModel)]="banner.subtitle" />
+
+          <label>Background Image:</label>
+          <input type="file" (change)="previewImage($event)" />
+
+          <button type="submit">Save Banner</button>
+        </form>
+
+      </div> -->
+      <!--! service -->
+      <div id="services" class="panel-content">
+        <h3>Services</h3>
+
+        <div class="container scroll-wrapper ">
+
+          <div class="section-switch">
+            <button *ngFor="let s of section" (click)="switchSection(s.name,s.ID)"
+              [ngClass]="{ 'active': activeSection == s.name }">
+              {{ s.name }}
+            </button>
+          </div>
+
+          <div class="section-items">
+            <div *ngFor="let item of items; let i = index" class="item-card">
+
+              <!-- Existing image -->
+              <img [src]="item.image_src | fullImagePath" loading="lazy" *ngIf="item.image_src" />
+
+              <!-- Preview image -->
+              <div *ngIf="item.previewUrl">
+                <img [src]="item.previewUrl" alt="Preview" 00 />
+              </div>
+
+              <!-- Title input -->
+              <input type="text" [(ngModel)]="item.title" placeholder="Title" />
+
+              <!-- File input -->
+              <input type="file" (change)="onFileSelected($event, i, 'services')" accept="image/*" />
+
+              <!-- Size selector -->
+              <select [(ngModel)]="item.size">
+                <option value="banner">Banner</option>
+                <option value="square">Square</option>
+              </select>
+
+              <!-- Action buttons -->
+              <div class="button-row">
+                <button style="float:left" (click)="onUpdateItem(i, item)">💾 Save</button>
+                <button style="float:right" (click)="onRemoveItem(i)">❌ Delete</button>
+              </div>
+            </div>
+
+            <!-- Add new item -->
+            <button class="add-btn" (click)="onAddItem()">➕ Add New Image</button>
+          </div>
+
+        </div>
+      </div>
+
+      <!--! sectors -->
+
+      <div id="sectors" class="panel-content" style="display: none;">
+        <h3>Sectors</h3>
+        <div class="container scroll-wrapper ">
+
+          <div class="section-switch" *ngIf="sectors && sectors.length">
+            <button *ngFor="let s of sectors" (click)="switchSection(s.name,s.ID)"
+              [ngClass]="{ 'active': activeSection == s.name }">
+              {{ s.name }}
+            </button>
+          </div>
+
+          <div class="section-items">
+            <div *ngFor="let item of items; let i = index" class="item-card">
+              <!-- Existing image -->
+              <img [src]="item.image_src | fullImagePath" loading="lazy" *ngIf="item.image_src" />
+
+              <!-- Preview image -->
+              <div *ngIf="item.previewUrl">
+                <img [src]="item.previewUrl" loading="lazy" alt="Preview" />
+              </div>
+              <input type="text" [(ngModel)]="item.title" placeholder="Title" />
+
+              <input type="file" (change)="onFileSelected($event, i,'sections')" accept="image/*" />
+
+              <select [(ngModel)]="item.size">
+                <option value="banner">Banner</option>
+                <option value="square">Square</option>
+              </select>
+
+              <div class="button-row">
+                <button style="float:left" (click)="onUpdateItem(i, item)">💾 Save</button>
+                <button style="float:right" (click)="onRemoveItem(i)">❌ Delete</button>
+              </div>
+            </div>
+            <button class="add-btn" (click)="onAddItem()">➕ Add New Image</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!--! Media Production-->
+      <div id="media-production" class="panel-content">
+  <h3>Media Production</h3>
+  <div class="container scroll-wrapper">
+
+     <div class="section-switch">
+      <button *ngFor="let cat of categories"
+              (click)="setCategory(cat.name)"
+              [ngClass]="{ 'active': selectedCategory  == cat.name }">
+        {{ cat.name }}
+      </button>
+    </div>
+
+     <div class="section-items">
+      <div *ngFor="let video of filterVideos(); let i = index" class="item-card">
+
+        <!-- Video Embed -->
+        <!-- <iframe [src]="getEmbedUrl(video.id)" width="100%"  height="200" lazyload frameborder="0" 
+        allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+  
+        <iframe [src]="getEmbedUrl(video.id)| safeUrl" height="200"  
+        allowfullscreen lazyload frameborder="0" 
+        allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin">
+        </iframe>
+         <!-- <input type="text" [(ngModel)]="video.title" placeholder="Title" /> -->
+
+ <input
+  type="text"
+  [ngModel]="newVideoUrl"
+  (ngModelChange)="onVideoUrlChange($event,i)"
+  placeholder="Paste YouTube URL here"
+/>
+
+         <div class="button-row">
+          <button style="float:left" (click)="onUpdateVideo(i, video)">💾 Save</button>
+          <button style="float:right" (click)="onRemoveVideo(i)">❌ Delete</button>
+        </div>
+      </div>
+
+       <button class="add-btn" (click)="onAddVideo()">➕ Add New Video</button>
+    </div>
+  </div>
+</div>
+
+      <!--! partners -->
+
+      <div id="partners" class="panel-content" style="display: none;">
+        <h3>Partners</h3>
+        <div class="container scroll-wrapper ">
+
+          <div class="section-items">
+            <div *ngFor="let item of partners; let i = index" class="partners-card">
+
+              <img [src]="item.logo " loading="lazy" class="thumbnail-partners" *ngIf="item.logo" />
+
+              <!-- Preview image -->
+              <div *ngIf="item.previewUrl">
+                <img [src]="item.previewUrl" loading="lazy" class="thumbnail-partners" alt="Preview" />
+              </div>
+
+              <input type="file" (change)="onFileSelected($event, i,'partners')" accept="image/*" />
+
+
+              <div class="button-row">
+                <button style="float:left" (click)="onUpdatePartners(i, item)">💾 Save</button>
+                <button style="float:right" (click)="onRemoveItem(i,'partners')">❌ </button>
+              </div>
+            </div>
+
+            <button class="add-btn" (click)="onAddItem()">➕ Add New Image</button>
+          </div>
+        </div>
+      </div>
+      <!--! news -->
+
+      <div id="news" class="panel-content" style="display: none;">
+        <h3>News</h3>
+
+        <div class="container scroll-wrapper ">
+
+          <div class="section-items">
+            <div *ngFor="let item of news; let i = index">
+
+              <img [src]="item.image_src  |fullImagePath" loading="lazy" class="img-prev" *ngIf="item.image_src" />
+
+              <div *ngIf="item.previewUrl">
+                <img [src]="item.previewUrl" alt="Preview" loading="lazy" alt="Preview" class="img-prev" />
+              </div>
+
+              <label>Title:</label>
+              <input type="text" name="title"  autocomplete="off" [(ngModel)]="item.title" />
+
+              <label>sub Title:</label>
+              <input type="text" name="sub_title"  autocomplete="off"  [(ngModel)]="item.sub_title" />
+
+              <label>Description:</label>
+              <quill-editor [(ngModel)]="item.description"   [styles]="{ width: 'auto', height: '300px' }" [modules]="{
+                toolbar: [
+                  [  { 'size': ['small', false, 'large', 'huge'] }],
+                  ['bold', 'italic', 'underline', 'strike'],
+                  [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+                  [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                  [{ 'align': [] }] 
+                ]
+              }"></quill-editor>
+
+
+               <!-- <div class="description-preview" [innerHTML]="item.description"></div> -->
+
+              <label>Image:</label>
+              <input type="file" (change)="onFileSelected($event, i,'news')" accept="image/*" />
+
+              <div class="button-row">
+                <button style="float:left" (click)="onUpdateNews(i, item)">💾 Save</button>
+                <button style="float:right" (click)="onRemoveItem(i,'news')">❌ Delete</button>
+              </div>
+            </div>
+            <br>
+            <button class="add-btn" (click)="onAddItem()">➕ Add New Article</button>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <!--! featured -->
+
+      <div id="featured" class="panel-content" style="display: none;">
+        <h3>Featured</h3>
+
+        <div class="container scroll-wrapper ">
+
+          <div class="section-items">
+            <div *ngFor="let item of featured; let i = index">
+
+              <img [src]="item.image_src |fullImagePath" loading="lazy" class="img-prev" *ngIf="item.image_src" />
+
+              <div *ngIf="item.previewUrl">
+                <img [src]="item.previewUrl" alt="Preview" loading="lazy" alt="Preview" class="img-prev" />
+              </div>
+
+              <label>Title:</label>
+              <input type="text" name="title"  autocomplete="off" [(ngModel)]="item.title" />
+              <label>sub Title:</label>
+              <input type="text" name="sub_title"  autocomplete="off" [(ngModel)]="item.sub_title" />
+              <label>Description:</label>
+              <textarea type="text" name="description" [(ngModel)]="item.description"></textarea>
+              <label>Background Image:</label>
+              <input type="file" (change)="onFileSelected($event, i,'featured')" accept="image/*" />
+
+              <div class="button-row">
+                <button style="float:left" (click)="onUpdateFeatured(i, item)">💾 Save</button>
+                <button style="float:right" (click)="onRemoveItem(i,'featured')">❌ Delete</button>
+              </div>
+            </div>
+
+            <button class="add-btn" (click)="onAddItem()">➕ Add New Feature</button>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+  <!--! sidebar  -->
+  <nav class="sidebar">
+    <header class="logo-header">
+
+      <img src="assets/logo.png" alt="Logo" class="logo" style="width:fit-content; " [routerLink]="['/']">
+      <h2>YFS</h2>
+
+    </header>
+    <ul>
+      <li><a class="nav-link active" data-target="dashboard"
+          [ngClass]="{ 'active': activePanel === 'dashboard' }"><ion-icon name="bar-chart-outline"></ion-icon>
+          &nbsp;&nbsp;Dashboard</a></li>
+      <li><a class="nav-link" data-target="requests" [ngClass]="{ 'active': activePanel === 'requests' }"
+          (click)="GetContactUsData()"><ion-icon name="list-outline"></ion-icon>&nbsp;&nbsp; Requests</a></li>
+      <li><a style="display:flex;padding: 10px;"><ion-icon name="settings-outline"></ion-icon>&nbsp;&nbsp; Settings
+          &nbsp;&nbsp;<ion-icon name="chevron-down-outline"></ion-icon> </a>
+      </li>
+      <span>
+        <li><a class="nav-link" data-target="banner" [ngClass]="{ 'active': activePanel === 'banner' }">
+            <span>Banner</span> </a>
+        </li>
+
+        <li><a class="nav-link" data-target="services" (click)="sidebarClick('section')"> <span>Services</span> </a>
+        </li>
+        <li><a class="nav-link" data-target="media-production" (click)="sidebarClick('media-production')"> <span>Media Production</span> </a>
+        </li>
+        <li><a class="nav-link" data-target="sectors" (click)="sidebarClick('sector')"> <span>Sectors</span> </a>
+        </li>
+        <li><a class="nav-link" data-target="partners" (click)="sidebarClick('partners')"> <span>Partners</span> </a>
+        </li>
+        <li><a class="nav-link" data-target="news" (click)="sidebarClick('news')"> <span>News</span> </a>
+        </li>
+        <li><a class="nav-link" data-target="featured" (click)="sidebarClick('featured')"> <span>Featured</span> </a>
+        </li>
+      </span>
+    </ul>
+  </nav>
+</div>
+
+
+
+
+
+<!-- 🔐 Login Modal -->
+<div class="login-overlay" *ngIf="showLogin">
+  <div class="login-modal">
+    <h2>Login to Control Panel</h2>
+
+    <label>User / Email:</label>
+    <input type="email" [(ngModel)]="login.email" autocomplete="off" />
+
+    <label>Password:</label>
+    <input type="password" [(ngModel)]="login.password" autocomplete="off" />
+
+    <div class="login-actions">
+      <button (click)="submitLogin()">🔐 Login</button>
+    </div>
+
+    <p *ngIf="loginError" class="login-error">Invalid credentials. Try again.</p>
+  </div>
+</div>

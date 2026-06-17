@@ -1,0 +1,43 @@
+<div class=" section-header text-center container-fluid">
+	<h3 class="section-title  "> Our Partners</h3>
+	<h4 class="text-blur" style="padding-bottom: 50px;">home/partners</h4>
+  
+  </div>
+  <div  class="main">
+
+<div class="partners-container">
+  <ul class="partners-list">
+    <li *ngFor="let image of partners">
+      <img [src]="image.logo" alt="Image {{ image.name }}">
+    </li>
+  </ul>
+</div>
+
+    <section class="section-area-bottom  "  >
+        <div class="section-sub text-center container">
+
+            <p style=" 
+            left: 43%;
+            margin-top: 25px;
+            font-weight: bold; color: #fff;">Ready to start our growth journey?</p>
+            <p style="     
+         
+            margin-top: 40px;
+            font-size: small;
+            font-weight: bold; " class="text-blur">Join us now</p>
+
+            <figure class="features-banner"  [routerLink]="['/contact']">
+              <img id="join-us" 
+                src="../../assets/print.png"              
+                loading="lazy"
+                alt="Join Us Now"
+                class=" "
+                style="  opacity: 0.8;
+                height: 150px; "
+              />
+            </figure>
+
+        </div>
+       
+      </section>
+</div>

@@ -1,0 +1,19 @@
+RewriteEngine On
+
+    # Allow CORS for both www and non-www
+    SetEnvIf Origin "https://yourfirstsolution.com$" ORIGIN_ALLOWED=$0
+    SetEnvIf Origin "https://www.yourfirstsolution.com$" ORIGIN_ALLOWED=$0
+    Header always set Access-Control-Allow-Origin %{ORIGIN_ALLOWED}e env=ORIGIN_ALLOWED
+
+    # Handle Preflight (OPTIONS Requests)
+    RewriteCond %{REQUEST_METHOD} OPTIONS
+    RewriteRule ^(.*)$ $1 [R=200,NC,L]
+
+    Header always set Access-Control-Allow-Methods "GET, POST, OPTIONS, DELETE, PUT"
+    Header always set Access-Control-Allow-Headers "Content-Type, Authorization"
+    Header always set Access-Control-Allow-Credentials "true"
+
+# Fix Angular Routing (Handle deep links)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]

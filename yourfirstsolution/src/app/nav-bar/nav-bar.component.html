@@ -1,0 +1,32 @@
+<nav id="nav" [ngClass]="{'nav-transparent': isAtTop, 'fixed-nav': !isAtTop}" class="navbar">
+  <header class="header">
+    <div class="container">
+      
+      <!-- Logo -->
+      <a href="/" class="navbar-brand">
+        <img class="logo" src="../../assets/logo.png" alt="logo" [ngClass]="{'logo-large': isAtTop, 'logo-normal': !isAtTop}">
+      </a>
+
+      <!-- Hamburger Menu Button -->
+      <button class="nav-toggle" (click)="toggleMobileNav()">
+        <ion-icon [name]="mobileNavOpen ? 'close-outline' : 'menu-outline'"></ion-icon>
+      </button>
+
+      <!-- Navigation Menu -->
+      <ul class="navbar-list" [ngClass]="{'mobile-nav': mobileNavOpen}">
+        <li class="navbar-item"><a (click)="navigate('home')" [routerLink]="['/']" class="navbar-link">Home</a></li>
+        <li class="navbar-item"><a (click)="navigate('about')" [routerLink]="['/']" fragment="about" class="navbar-link">Story</a></li>
+        <li class="navbar-item"><a (click)="navigate('services')" [routerLink]="['/']" fragment="services" class="navbar-link">Services</a></li>
+        <li class="navbar-item"><a (click)="navigate('sectors')" [routerLink]="['/']" fragment="sectors" class="navbar-link">Sectors</a></li>
+        <li class="navbar-item"><a (click)="navigate('blog')" [routerLink]="['/']" fragment="blog" class="navbar-link">Talks</a></li>
+        <li class="navbar-item"><a [routerLink]="['/contact']" class="navbar-link">Contact Us</a></li>
+      </ul>
+
+      <!-- Quote Button -->
+      <a [routerLink]="['/contact']" class="quote-button">
+        <img src="../../assets/button.png" height="50" width="160">
+      </a>
+
+    </div>
+  </header>
+</nav>
